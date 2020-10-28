@@ -1,0 +1,12 @@
+#!/bin/bash
+#SBATCH --time=36:00:00
+#SBATCH --ntasks=24
+#SBATCH --tasks-per-node=24
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=24G
+#SBATCH --partition=comp
+
+module load openmpi/1.10.7-mlx
+module load gromacs/5.1.4
+
+mpirun gmx_mpi mdrun -ntomp ${SLURM_CPUS_PER_TASK} -s nvt.tpr -deffnm nvt -g nvt.log

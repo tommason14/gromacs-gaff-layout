@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH --account=sn29
+#SBATCH --time=30:00
+#SBATCH --ntasks=8
+#SBATCH --tasks-per-node=8
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=8G
+#SBATCH --partition=comp,short
+#SBATCH --qos=shortq
+
+module load openmpi/1.10.7-mlx
+module load gromacs/5.1.4
+
+mpirun gmx_mpi mdrun -ntomp ${SLURM_CPUS_PER_TASK} -s em.tpr -deffnm em -g em.log
