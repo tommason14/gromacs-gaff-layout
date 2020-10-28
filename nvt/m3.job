@@ -5,6 +5,7 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=24G
 #SBATCH --partition=comp
+#SBATCH --job-name=gromacs-nvt
 #SBATCH --mail-user=thomas.mason1@monash.edu                  
 #SBATCH --mail-type=ALL                                       
 
