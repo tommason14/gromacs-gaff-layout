@@ -1,14 +1,42 @@
-; polymer_GMX.top created by acpype (v: 2020-09-02T11:49:19CEST) on Tue Oct 27 10:13:26 2020
+;
+;   File polymer.top  was generated
+;   By user: tmas0023 (290302666)
+;   On host: MU00151959X
+;   At date: Mon. March  1 12:39:04 2021
+;
+;   This is a standalone topology file
+;
+;   Created by:
+;   ParmEd:       amber_to_gmx.py, VERSION 3.2.0
+;   Executable:   amber_to_gmx.py
+;   Library dir:  /usr/local/Cellar/gromacs/2020.4/share/gromacs/top
+;   Command line:
+;     /Users/tmas0023/.local/scripts/chem/lammps/lammps_to_gromacs_gaff/amber_to_gmx.py
+;
 
 [ defaults ]
 ; nbfunc        comb-rule       gen-pairs       fudgeLJ fudgeQQ
-1               2               yes             0.5     0.8333
+1               2               yes             0.5          0.83333333  
 
+[ atomtypes ]
+; name    at.num    mass    charge ptype  sigma      epsilon
+os             8  16.000000  0.00000000  A     0.30000123        0.71128
+c3             6  12.010000  0.00000000  A     0.33996695      0.4577296
+h1             1   1.008000  0.00000000  A      0.2471353      0.0656888
+; tip4p                                                          
+HW_tip4p     1       1.008   0.0000  A   0.00000e+00  0.00000e+00
+OW_tip4p     8      16.00    0.0000  A   3.15365e-01  6.48520e-01
+; MW=Dummy mass for tip4p/EW/5p water extra point charge         
+MW           0       0.0000  0.0000  D   0.00000e+00  0.00000e+00
+
+#include "tip4p.itp"
 #include "polymer.itp"
 
 [ system ]
- polymer
+; Name
+Polymer in water
 
 [ molecules ]
-; Compound        nmols
- polymer          20
+; Compound       #mols
+pol                 10
+WAT              20000
