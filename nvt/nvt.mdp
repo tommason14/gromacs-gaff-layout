@@ -1,15 +1,15 @@
 ; Run parameters
 integrator              = md        ; leap-frog integrator
-nsteps                  = 20000000  ; 20 ns
+nsteps                  = 30000000  ; 30 ns
 dt                      = 0.001     ; 1 fs
 ; Output control
-nstxout-compressed      = 5000      ; save compressed coordinates
+nstxout-compressed      = 10000     ; save compressed coordinates
 nstxout                 = 0         ; save coordinates
 nstvout                 = 0         ; save velocities
 nstenergy               = 1000      ; save energies
 nstlog                  = 1000      ; update log file
 ; Bond parameters
-continuation            = no        ; first dynamics run
+continuation            = yes       ; second dynamics run
 constraint_algorithm    = lincs     ; holonomic constraints
 constraints             = h-bonds   ; bonds involving H are constrained
 lincs_iter              = 1         ; accuracy of LINCS
@@ -33,6 +33,7 @@ ref-t                   = 300       ; reference temperature, one for each group,
 ; Periodic boundary conditions
 pbc                     = xyz       ; 3-D PBC
 ; Velocity generation
+gen-vel                 = no        ; Using NPT velocities
 gen_vel                 = yes       ; assign velocities from Maxwell distribution
 gen_temp                = 300       ; temperature for Maxwell distribution
 gen_seed                = -1        ; generate a random seed
